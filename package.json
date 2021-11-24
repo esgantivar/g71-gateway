@@ -1,0 +1,21 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "gateway misiontic",
+  "main": "src/index.js",
+  "scripts": {
+    "serve": "node src/index.js"
+  },
+  "author": "Sneyder Gantiva",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-datasource-rest": "^3.4.0",
+    "apollo-server": "^3.5.0",
+    "graphql": "^16.0.1",
+    "lodash": "^4.17.21",
+    "node-fetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
