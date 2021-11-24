@@ -13,7 +13,7 @@ class AccountAPI extends RESTDataSource {
     }
 
     createAccount(account) {
-        return this.post('/accounts', account);
+        return this.post('/accounts/', account);
     }
 
     accountByUsername(username) {

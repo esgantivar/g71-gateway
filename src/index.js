@@ -1,12 +1,27 @@
 // Archivo principal de la aplicación
 
 // Importando la liberia del servidor
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server');
+
+// The GraphQL schema
+const typeDefs = gql`
+  type Query {
+    "A simple type for getting started!"
+    hello: String
+  }
+`;
+
+// A map of functions which return data for the schema.
+const resolvers = {
+  Query: {
+    hello: () => 'world',
+  },
+}
 
 // Creando el servidor
 const server = new ApolloServer({
-    typeDefs: [],
-    resolvers: {},
+    typeDefs: typeDefs,
+    resolvers: resolvers,
     introspection: true,
     playground: true
 });
