@@ -1,21 +1,26 @@
 // Permitirme conectarme con mi ms de autenticación
 
 const { RESTDataSource } = require('apollo-datasource-rest');
+const {auth_ms_url} = require('../server')
 
 class AuthAPI extends RESTDataSource {
     
     constructor() {
         super();
-        this.baseURL = 'https://auth-ms-g71.herokuapp.com';
+        this.baseURL = auth_ms_url;
     }
 
     allUser() {
         // una petición de tipo GET a la url http://localhost:8000/usuario/
-        return this.get('/usuario/');
+        return this.get('/usuario/', {username: 'pepe'});
     }
 
     getUser(userId) {
-        return this.get(`/usuario/${userId}`);
+        return this.get(`/usuario/${userId}`, {}, {
+            headers:{
+                'Authorization': `${this.context.token}`
+            }
+        });
     }
 
     createUser(user) {

@@ -4,7 +4,7 @@
   "description": "gateway misiontic",
   "main": "src/index.js",
   "scripts": {
-    "serve": "node src/index.js"
+    "serve": "nodemon src/index.js"
   },
   "author": "Sneyder Gantiva",
   "license": "ISC",

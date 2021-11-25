@@ -1,11 +1,13 @@
 // Permitirme conectarme con mi ms de cuentas
 
 const { RESTDataSource } = require('apollo-datasource-rest');
+const {account_ms_url} = require('../server');
 
 class AccountAPI extends RESTDataSource {
+
     constructor(){
         super();
-        this.baseURL = 'http://localhost:8080'
+        this.baseURL = account_ms_url;
     }
 
     allAccounts(){
