@@ -1,19 +1,19 @@
 // Archivo principal de la aplicación
 
 // Importando la liberia del servidor
-const { ApolloServer, gql } = require('apollo-server');
-const authentication = require('./utils/authentication');
+const {ApolloServer, gql} = require('apollo-server');
+const {authenticationByPromise, authentication} = require('./utils/authentication');
 
 const typeDefs = gql`
-  type Query {
-    hellos: String
-  }
+    type Query {
+        hellos: String
+    }
 `;
 
 const resolvers = {
-  Query: {
-    hellos: () => 'world',
-  },
+    Query: {
+        hellos: () => 'world',
+    },
 }
 
 // Creando el servidor
@@ -29,6 +29,6 @@ const server = new ApolloServer({
 server.listen(4000).then((params) => {
     //console.log(params);
     console.log('servidor corriendo');
-}).catch(()=>{
+}).catch(() => {
     console.log('error');
 });
