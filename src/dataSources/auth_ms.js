@@ -12,7 +12,11 @@ class AuthAPI extends RESTDataSource {
 
     allUser() {
         // una petición de tipo GET a la url http://localhost:8000/usuario/
-        return this.get('/usuario/', {username: 'pepe'});
+        return this.get('/usuario/', {}, {
+            headers: {
+                'Authorization': this.context.token
+            }
+        });
     }
 
     getUser(userId) {
@@ -27,17 +31,14 @@ class AuthAPI extends RESTDataSource {
         return this.post('/usuario/', user);
     }
 
-    auth(username, password) {
+    auth(credentials) {
         /**
          * {
          *      "username": "esgantivar",
          *      "password": "1213123"
          * }
          */
-        return this.post('/simple/login/', {
-            username,
-            password
-        });
+        return this.post('/simple/login/', credentials);
     }
 
     refreshToken(refreshToken) {
