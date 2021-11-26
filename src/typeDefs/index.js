@@ -51,6 +51,7 @@ const typeDefs = gql`
         userDetailById: UserDetail!,
         getAllUser: Users!
         getAllAccounts: [Account]!
+        getAllAccount: [Account]!
     }
 
     type Mutation {

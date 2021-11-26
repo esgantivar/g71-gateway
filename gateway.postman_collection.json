@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "283fd1af-7daf-4c56-9855-d8a4a86cca15",
+		"name": "Gateway G71",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mutaciones",
+			"item": [
+				{
+					"name": "Refrescar Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation($refresh: String!) {\n    refreshToken(refresh: $refresh){\n        access\n    }\n}",
+								"variables": "{\n    \"refresh\": \"{{refresh_token}}\"\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation($c: CredentialsInput!) {\n    logIn (credentials: $c){\n        access\n        refresh\n    }\n}",
+								"variables": "{\n    \"c\": {\n        \"username\": \"esgantivar\",\n        \"password\": \"pass1234\"\n    }\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation($userInput: CreateUserInput!) {\n    createUser(userInput: $userInput) {\n        id\n    }\n}",
+								"variables": "{\n    \"userInput\": {\n        \"username\": \"usuarionuevo2\",\n        \"first_name\": \"Sneyder\",\n        \"last_name\": \"Gantiva\",\n        \"email\": \"esgantivar2@domain.co\",\n        \"password\": \"pass1234\",\n        \"balance\": 20000\n    }\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Queries",
+			"item": [
+				{
+					"name": "Obtener detalle de usuario",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    userDetailById {\n        username,\n        email,\n        id\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todos los usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    getAllUser {\n        usuarios {\n            id\n            username\n        }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas las cuentas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    getAllAccounts {\n        username,\n        lastChange\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000"
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
