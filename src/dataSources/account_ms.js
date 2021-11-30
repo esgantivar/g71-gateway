@@ -4,7 +4,6 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 const {account_ms_url} = require('../server');
 
 class AccountAPI extends RESTDataSource {
-
     constructor(){
         super();
         this.baseURL = account_ms_url;

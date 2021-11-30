@@ -11,7 +11,7 @@
   "dependencies": {
     "apollo-datasource-rest": "^3.4.0",
     "apollo-server": "^3.5.0",
-    "graphql": "^16.0.1",
+    "graphql": "^15.7.2",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.6"
   },

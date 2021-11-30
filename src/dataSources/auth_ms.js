@@ -11,7 +11,6 @@ class AuthAPI extends RESTDataSource {
     }
 
     allUser() {
-        // una petición de tipo GET a la url http://localhost:8000/usuario/
         return this.get('/usuario/', {}, {
             headers: {
                 'Authorization': this.context.token
