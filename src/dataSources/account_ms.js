@@ -22,6 +22,7 @@ class AccountAPI extends RESTDataSource {
     }
 
     deleteAccountByUsername(username) {
+        // TODO: Pendiente implementar
         return this.delete(`/accounts/${username}`);
     }
 

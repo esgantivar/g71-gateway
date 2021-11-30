@@ -8,6 +8,7 @@ const accountTypeDefs = gql `
     }
     
     type Query {
+        getAccountByUsername: Account!
         getAllAccounts: [Account]!
     }
 `;

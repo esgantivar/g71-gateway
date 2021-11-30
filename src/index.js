@@ -24,7 +24,7 @@ const server = new ApolloServer({
 });
 
 // Levantando el servidor
-server.listen(4000).then((params) => {
+server.listen(process.env.PORT||4000).then((params) => {
     //console.log(params);
     console.log('servidor corriendo');
 }).catch(() => {
