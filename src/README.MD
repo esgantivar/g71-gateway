@@ -11,4 +11,4 @@
 3. `heroku container:login`
 4. `heroku container:push web -a <nombre_app>`
 5. `heroku container:release web -a <nombre_app>`
-6. `heroku container open -a <nombre_app>`
+6. `heroku open -a <nombre_app>`
